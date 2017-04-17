@@ -1,0 +1,16 @@
+#lang scheme
+(define (fibo n)
+  (define (fibo-iter a b cnt)
+    (if (= cnt 0)
+        b
+        (fibo-iter b (+ a b) (- cnt 1))
+       )
+    )
+  (fibo-iter 1 0 (+ n 1))
+  )
+(fibo 0)
+(fibo 1)
+(fibo 2)
+(fibo 3)
+(fibo 4)
+(fibo 5)
