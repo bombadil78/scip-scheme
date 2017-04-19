@@ -1,0 +1,27 @@
+#lang scheme
+(define (rec-func n)
+  (if (< n 3)
+        n
+        (+ (rec-func (- n 1)) (* 2 (rec-func (- n 2))) (* 3(rec-func (- n 3))))
+      )
+  )
+(define (rec-func-lin n)
+  (define (rec-func-iter a b c count)
+    (if (= count 0)
+        c
+        (rec-func-iter (+ a (* 2 b) (* 3 c)) a b (- count 1))
+        )
+    )
+  (rec-func-iter 2 1 0 n)
+  )
+(rec-func 0)
+(rec-func 1)
+(rec-func 2)
+(rec-func 3)
+(rec-func 4)
+(rec-func-lin 0)
+(rec-func-lin 1)
+(rec-func-lin 2)
+(rec-func-lin 3)
+(rec-func-lin 4)
+  
